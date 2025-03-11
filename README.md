@@ -1,4 +1,4 @@
-# 🍽️ Menza Lovec 
+# 🌭🎯 JägerMenzer
 
 - Tento skript umožňuje vybrat a automaticky objednávat jídla ze stránek menzy TU Liberec.
 - Skript kontroluje, zda je jídlo dostupné, a může jej zakoupit, jakmile se objeví v burze.
