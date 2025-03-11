@@ -23,7 +23,7 @@
 ## 🚀 Spuštění
 
 ### **Windows** 🟥🟩🟦🟨
-- Otevři si PowerShell a přejdi do složky, kde to chceš spustit.
+- Otevřete si PowerShell a přejděte do složky, kde to chcete spustit.
 
 | Krok | Příkaz |
 | ---- | ------ |
