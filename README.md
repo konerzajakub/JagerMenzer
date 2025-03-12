@@ -16,7 +16,7 @@
     - `MENZA-K8`
     - `_shibsession_`
 
-6. Vložte zkopírované hodnoty do příslušných proměnných na začátku skriptu:
+6. Vložte zkopírované hodnoty do souboru **`tokeny.txt`**:
     - `MENZA_K8_TOKEN` pro hodnotu cookie `"MENZA-K8"`
     - `SHIBSESSION_TOKEN` pro hodnotu cookie `"_shibsession_"`
 
