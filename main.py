@@ -426,7 +426,11 @@ def main():
 
     # Zkontroluje stav přihlášení
     if not check_login_status(html_content):
-        print("CHYBA: Přihlášení selhalo. Zkontrolujte své autentizační tokeny.")
+        print("\n" + "=" * 50)
+        print("❌ CHYBA: Přihlášení selhalo!")
+        print("🔹 Nejprve zkuste program spustit znovu.")
+        print("🔹 Pokud problém přetrvává, aktualizujte své tokeny.")
+        print("=" * 50 + "\n")
         return
 
     print("Přihlášení úspěšné!")
