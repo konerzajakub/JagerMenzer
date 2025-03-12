@@ -6,7 +6,7 @@
   
 ## 🔑 Získání autentifikačních tokenů
 
-1. Otevřete prohlížeč Chrome a přejděte na adresu [https://menza.tul.cz/](https://menza.tul.cz/).
+1. Otevřete prohlížeč Chrome a přejděte na adresu [`https://menza.tul.cz/`](https://menza.tul.cz/).
 
 2. Stiskněte klávesu `F12` pro otevření vývojářských nástrojů.
 
