@@ -1,6 +1,6 @@
 # 🌭🎯 JägerMenzer
 
-- Tento skript automaticky objedná nedostupné jídlo v TUL menze, jakmile ho někdo dá do burzy.
+Tento skript automaticky objedná nedostupné jídlo v TUL menze, jakmile ho někdo dá do burzy.
 
 <video src="https://github.com/user-attachments/assets/14ddb673-1be3-4c28-82ba-ffb4ebcbacb0" width="668" height="593"></video>
   
