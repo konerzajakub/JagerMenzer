@@ -2,10 +2,7 @@
 
 - Tento skript automaticky objedná nedostupné jídlo v TUL menze, jakmile ho někdo dá do burzy.
 
-<video width="1114" height="988" controls>
-  <source src="https://github.com/user-attachments/assets/14ddb673-1be3-4c28-82ba-ffb4ebcbacb0" type="video/mp4">
-  Tvůj prohlížeč nepodporuje video tag.
-</video>
+<video src="https://github.com/user-attachments/assets/14ddb673-1be3-4c28-82ba-ffb4ebcbacb0" width="668" height="593"></video>
   
 ## 🔑 Získání autentifikačních tokenů
 
