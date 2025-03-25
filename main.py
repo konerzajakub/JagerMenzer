@@ -347,7 +347,7 @@ def monitor_and_order(selected_meals, canteen_id, current_date):
     print("Stiskněte Ctrl+C pro zastavení skriptu.")
 
     try:
-        check_interval = 5  # sekund mezi kontrolami
+        check_interval = 3  # sekund mezi kontrolami
         while True:
             all_ordered = True
 
