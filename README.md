@@ -3,7 +3,7 @@
 Tento skript automaticky objedná nedostupné jídlo v TUL menze, jakmile ho někdo dá do burzy.
 
 > [!Caution]
-> Objevil se bug, kde script nevidí dostupné jídlo. Nejspíše je to zapříčeněno krátkou životností tokenů.
+> Objevil se bug, kde script nevidí dostupné jídlo. Nejspíše je to zapříčeněno krátkou životností tokenů. Prozatím doporučuji restartovat script každých 15 minut a případně obměnit token.
 
 <video src="https://github.com/user-attachments/assets/14ddb673-1be3-4c28-82ba-ffb4ebcbacb0" width="668" height="593"></video>
   
