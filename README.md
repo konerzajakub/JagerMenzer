@@ -18,7 +18,7 @@ Tento skript automaticky objedná nedostupné jídlo v TUL menze, jakmile ho ně
     - `MENZA-K8`
     - `_shibsession_`
 
-6. Vložte zkopírované hodnoty do souboru **`tokeny.txt`**:
+6. Zkopírujte soubor **`tokeny.txt.example`** jako **`tokeny.txt`** a vložte do něj zkopírované hodnoty:
     - `MENZA_K8_TOKEN` pro hodnotu cookie `"MENZA-K8"`
     - `SHIBSESSION_TOKEN` pro hodnotu cookie `"_shibsession_"`
 
