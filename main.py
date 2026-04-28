@@ -97,7 +97,7 @@ def get_menza_page(date=None, canteen_id=1, current_date=""):
     }
 
     try:
-        response = requests.get(url, cookies=cookies, headers=headers)
+        response = requests.get(url, cookies=cookies, headers=headers, timeout=10)
         response.raise_for_status()
         return response.text
     except requests.exceptions.RequestException as e:
@@ -133,6 +133,10 @@ def parse_meals(html_content):
             continue
 
         section_title = section_header.find('h1').text if section_header.find('h1') else "Neznámá sekce"
+
+        # Přeskočí sekci minutek — lze objednat pouze osobně na místě
+        if 'minut' in section_title.lower():
+            continue
 
         # Najde všechna jídla v této sekci
         meal_articles = section.find_all('article')
@@ -272,7 +276,7 @@ def order_meal(meal_data, canteen_id,current_date):
     }
 
     try:
-        response = requests.post(url, cookies=cookies, headers=headers, data=data)
+        response = requests.post(url, cookies=cookies, headers=headers, data=data, timeout=10)
 
         # Pokud dostaneme HTTP 200, považujeme to za úspěch
         if response.status_code == 200:
@@ -343,6 +347,8 @@ def select_meals(meal_mapping):
 
 def monitor_and_order(selected_meals, canteen_id, current_date):
     """Sleduje dostupnost jídel a objedná je, jakmile budou dostupná"""
+    global MENZA_K8_TOKEN, SHIBSESSION_TOKEN
+
     print("\nZahajuji sledování jídel...")
     print("Stiskněte Ctrl+C pro zastavení skriptu.")
 
@@ -355,7 +361,17 @@ def monitor_and_order(selected_meals, canteen_id, current_date):
             html_content = get_menza_page(current_date, canteen_id)
             if not html_content:
                 print("Nepodařilo se načíst data z webových stránek menzy.")
-                #time.sleep(check_interval)
+                time.sleep(check_interval)
+                continue
+
+            # Zkontroluje platnost relace; pokud vypršela, znovu načte tokeny ze souboru
+            if not check_login_status(html_content):
+                print(f"\n[{datetime.datetime.now().strftime('%H:%M:%S')}] ⚠️ Relace vypršela. Znovu načítám tokeny ze souboru tokeny.txt...")
+                new_tokens = load_tokens("tokeny.txt")
+                MENZA_K8_TOKEN = new_tokens.get("MENZA_K8_TOKEN", "")
+                SHIBSESSION_TOKEN = new_tokens.get("SHIBSESSION_TOKEN", "")
+                print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] 🔄 Tokeny obnoveny, pokračuji ve sledování...")
+                time.sleep(check_interval)
                 continue
 
             current_meals = parse_meals(html_content)
