@@ -33,7 +33,6 @@ def load_tokens(file_path="tokeny.txt"):
 # Načtení tokenů ze souboru tokeny.txt
 tokens = load_tokens("tokeny.txt")
 MENZA_K8_TOKEN = tokens.get("MENZA_K8_TOKEN", "")
-SHIBSESSION_TOKEN = tokens.get("SHIBSESSION_TOKEN", "")
 
 CANTEEN_ID = 1 # Výchozí hodnota: Harcov (1), Husova (2), Voroněžská (3)
 
@@ -83,7 +82,6 @@ def get_menza_page(date=None, canteen_id=1, current_date=""):
     cookies = {
         "mobileDetect": "0",
         "MENZA-K8": MENZA_K8_TOKEN,
-        "_shibsession_": SHIBSESSION_TOKEN,
         #"MsgFP": "",
         "MsgCh": "1"
     }
@@ -251,7 +249,6 @@ def order_meal(meal_data, canteen_id,current_date):
     cookies = {
         "mobileDetect": "0",
         "MENZA-K8": MENZA_K8_TOKEN,
-        "_shibsession_": SHIBSESSION_TOKEN,
         #"MsgFP": "",
         "MsgCh": "1"
     }
@@ -347,7 +344,7 @@ def select_meals(meal_mapping):
 
 def monitor_and_order(selected_meals, canteen_id, current_date):
     """Sleduje dostupnost jídel a objedná je, jakmile budou dostupná"""
-    global MENZA_K8_TOKEN, SHIBSESSION_TOKEN
+    global MENZA_K8_TOKEN
 
     print("\nZahajuji sledování jídel...")
     print("Stiskněte Ctrl+C pro zastavení skriptu.")
@@ -369,7 +366,6 @@ def monitor_and_order(selected_meals, canteen_id, current_date):
                 print(f"\n[{datetime.datetime.now().strftime('%H:%M:%S')}] ⚠️ Relace vypršela. Znovu načítám tokeny ze souboru tokeny.txt...")
                 new_tokens = load_tokens("tokeny.txt")
                 MENZA_K8_TOKEN = new_tokens.get("MENZA_K8_TOKEN", "")
-                SHIBSESSION_TOKEN = new_tokens.get("SHIBSESSION_TOKEN", "")
                 print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] 🔄 Tokeny obnoveny, pokračuji ve sledování...")
                 time.sleep(check_interval)
                 continue
@@ -426,7 +422,7 @@ def main():
     #print(f"✅ Kontroluji jídla pro datum: {current_date}")
 
     # Zkontroluje, zda jsou nastaveny tokeny
-    if MENZA_K8_TOKEN == "-" or SHIBSESSION_TOKEN == "-":
+    if MENZA_K8_TOKEN == "-":
         print("CHYBA: Autentizační tokeny nejsou nastaveny.")
         print("Aktualizujte hodnoty tokenů v horní části skriptu. Viz README pro instrukce.")
         return
