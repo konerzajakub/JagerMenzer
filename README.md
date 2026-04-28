@@ -14,13 +14,9 @@ Tento skript automaticky objedná nedostupné jídlo v TUL menze, jakmile ho ně
 
 4. V levém postranním panelu vyberte položku "**🍪 Cookies**". 
 
-5. Najděte cookies s názvy a zkopírujte jejich hodnoty:
-    - `MENZA-K8`
-    - `_shibsession_`
+5. Najděte cookie s názvem `MENZA-K8` a zkopírujte její hodnotu.
 
-6. Zkopírujte soubor **`tokeny.txt.example`** jako **`tokeny.txt`** a vložte do něj zkopírované hodnoty:
-    - `MENZA_K8_TOKEN` pro hodnotu cookie `"MENZA-K8"`
-    - `SHIBSESSION_TOKEN` pro hodnotu cookie `"_shibsession_"`
+6. Zkopírujte soubor **`tokeny.txt.example`** jako **`tokeny.txt`** a vložte zkopírovanou hodnotu do `MENZA_K8_TOKEN`.
 
 ## 🚀 Spuštění
 
